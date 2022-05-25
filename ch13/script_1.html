@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading" class="heading">자바스크립트</h1>
+    <!-- id은 자바스크립트에서 많이 씀 -->
+    <p id="text" class="heading">위 텍스트를 클릭해 보세요.</p>
+    <script>
+        // 자바스크립트에서는 문자열을 ''을 주로쓴다.
+        // document.querySelector(''); 보이드 함수 형태(앞뒤로 아무것도 안온다.)
+        var heading = document.querySelector('#heading'); //비보이드 함수형태
+        // document : 브라우저에서 자동으로 생성되는 객체이고 브라우저에 접근하는 용도
+        // 객체 : 속성(명사)과 동작(메소드.동사)으로 이루어져 있다.
+        // 소괄호가 없으면 속성이고 있으면 메소드이다.
+        // document.querySelector('선택자값') 원하는 곳의 주소값을 가져올때 사용하는 형식
+        // document.querySelectorAll('선택자값') All은 배열로 가져온다.
+        heading.onclick = function() {
+            // 이벤트 : 무언가 동작이 일어났을 때 (부팅, 클릭, 스크롤 등) - ~했을때 ~하겠다.
+            // on으로 시작하면 이벤트로 생각
+            // id값.이벤트조건 의 형태
+            heading.style.color = 'red';
+        }
+    </script>
+</body>
+</html>
