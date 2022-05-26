@@ -9,12 +9,16 @@
 <body>
     <script>
         var userNumber = prompt('숫자를 입력하세요.');
+        var msg = '입력이 취소됐습니다.';
 
         if(userNumber !== null) {
-            alert(parseInt(userNumber) % 3 === 0 && null ? '3의배수입니다.' : '3의배수가 아닙니다.');     
-        } else {
-            alert('입력이 취소됐습니다.');
-        }
+            msg = userNumber != 0 && Number(userNumber) % 3 === 0 ? '3의배수입니다.' : '3의배수가 아닙니다.';     
+        } 
+        alert(msg);
+        /*
+        parseInt : 문자열이 섞여있으면 가장 빠른 숫자만 찾아내서 나타낸다.
+        Number : 문자열 섞여있으면 고장남
+        */
     </script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        addNumber(100, 25); // Hoisting
+
+        function addNumber(n1, n2) { // 함수 정의
+            var sum = n1 + n2; // 파라미터에 값을 주지 않으면 undefined로 인식한다.
+            document.write(`결괏값 : ${sum}<br>`);
+        }
+
+        addNumber(10, 20); // 함수 호출
+        addNumber(1, 2, 5); // 파라미터 쪽에서 5를 버림
+    </script>
+</body>
+</html>

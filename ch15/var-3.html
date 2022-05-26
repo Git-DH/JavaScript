@@ -8,8 +8,14 @@
 </head>
 <body>
     <script>
-        alert('안녕하세요?')
-        // 브라우저에 내장 되어 있는 함수로 브라우저를 벗어 나면 작동 안함
+        var x = 10;
+        function displayNumber() {
+            console.log(`x is ${x}`);
+            console.log(`y is ${y}`);
+            var y = 10;
+            console.log(`y is ${y}`);
+        }
+        displayNumber();
     </script>
 </body>
 </html>

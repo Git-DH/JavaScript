@@ -8,8 +8,11 @@
 </head>
 <body>
     <script>
-        alert('안녕하세요?')
-        // 브라우저에 내장 되어 있는 함수로 브라우저를 벗어 나면 작동 안함
+        function addSum() {
+            var sum = 10 + 20; // 함수안의 지역변수(var)는 호이스팅 되지는 않는다.
+        }
+        addSum();
+        console.log(sum);
     </script>
 </body>
 </html>

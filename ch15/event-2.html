@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result { height: 300px; }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#" onclick="changeBg('Green')">Green</a></li>
+        <li><a href="#" onclick="changeBg('Orange')">Orange</a></li>
+        <li><a href="#" onclick="changeBg('Purple')">Purple</a></li>
+    </ul>
+    <div id="result"></div>
+    <script>
+        function changeBg(color) {
+            const resultDiv = document.querySelector('#result');
+            resultDiv.style.backgroundColor = color;
+        }
+        // function changeBg(color) {
+
+        // } 위와 같이 함수명이 겹치면 아래에 오는 함수가 더 씌워져 위의 함수는 사라진다.
+    </script>
+</body>
+</html>

@@ -7,9 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>짝수끼리 더하기</h1>
     <script>
-        alert('안녕하세요?')
-        // 브라우저에 내장 되어 있는 함수로 브라우저를 벗어 나면 작동 안함
+        var sum = 0;
+        for(var i=1; i<=10; i++) {
+
+            if(i % 2 === 0) {
+                sum += i;
+                document.write(`${i} ------ ${sum}<br>`);
+            }
+
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function addNumber(n1, n2=20) {
+            // if(n2 === undefined) {
+            //     n2 = 20;
+            // } 옛날 버전방식
+            const sum = n1 + n2;
+            return sum;
+        }
+        const result = addNumber(10, 20);
+        document.write(`두 수를 더한 값 : ${result}<br>`);
+        // document.write(`두 수를 더한 값 : ${addNumber(10, 20)}`);
+
+        const result2 = addNumber(11, 28);
+        document.write(`두 수를 더한 값 : ${result2}<br>`);
+
+        const result3 = addNumber(10);
+        document.write(`두 수를 더한 값 : ${result3}<br>`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arrow = () => { 
+            return 10;
+        }
+
+        const arrow2 = () => 10;
+        const sum = (n1, n2) => n1 + n2;
+        // 리턴키워드 없이 작성하는 조건 : 1줄만 작성, 중괄호 생략
+
+        const doubleVal = n1 => n1 * n1;
+        // -- 파라미터 소괄호 생략 가능
+        // 파라미터가 1개일 때만!
+
+        console.log(arrow());
+        console.log(arrow2());
+        console.log(sum(10, 20));
+        console.log(sum(100, 120));
+        console.log(doubleVal(5));
+
+    </script>
+</body>
+</html>

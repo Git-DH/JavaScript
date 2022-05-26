@@ -8,8 +8,17 @@
 </head>
 <body>
     <script>
-        alert('안녕하세요?')
-        // 브라우저에 내장 되어 있는 함수로 브라우저를 벗어 나면 작동 안함
+        function calcSum(n) {
+            let sum = 0;
+            for(let i=1; i<=n; i++){
+                sum += i;
+            }
+            document.write(`1~${n}까지 더한 값 : ${sum}<br>`);
+        }
+        
+    calcSum(10);
+
+    calcSum(5);
     </script>
 </body>
 </html>

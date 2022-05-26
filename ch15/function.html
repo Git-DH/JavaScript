@@ -8,8 +8,11 @@
 </head>
 <body>
     <script>
-        alert('안녕하세요?')
-        // 브라우저에 내장 되어 있는 함수로 브라우저를 벗어 나면 작동 안함
+        // 익명 함수 즉시실행
+        (function() {
+            document.write('실행<br');
+        })();
+
     </script>
 </body>
 </html>

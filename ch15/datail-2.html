@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d_none { display: none; }
+    </style>
+</head>
+<body>
+    <button class="over" onclick="img_showDetail();">이미지 보기</button>
+    <img id="img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA1MDJfMTEy%2FMDAxNjUxNDc5ODY3Nzkx.jGY3cNJrCv-cdEqZGtt6Dz67iy1Qjao1fIeL14SMJMQg.0R35Ah_VAbRM1BDvSGDh-whapEv8XsNiFgkyqVZgFAwg.JPEG.pts0501%2FIMG_2859.JPG&type=sc960_832">
+    <button id="close" onclick="img_hideDetail();">이미지 닫기</button>
+    <br>
+    <button class="over" onclick="flagDisplay();">상세 설명 보기</button>
+    <div id="desc" class="detail d_none">
+        <h3>제목</h3>
+        <p>설명~~~~</p>
+        <button id="close" onclick="flagDisplay();">상세 설명 닫기</button>
+    </div>
+    <script>
+        const descDiv = document.querySelector('#desc');
+        function flagDisplay() {
+            descDiv.classList.toggle('d_none');
+        }
+        // const descDiv = document.querySelector('#desc');
+        // function showDetail() {
+        //     descDiv.style.display = 'block';
+        // }
+        // function hideDetail() {
+        //     descDiv.style.display = 'none';
+        // }
+
+        function img_showDetail() {
+            document.querySelector('#img').style.display = 'block';
+        }
+        function img_hideDetail() {
+            document.querySelector('#img').style.display = 'none';
+
+        }
+    </script>
+</body>
+</html>

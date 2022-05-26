@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(n1, n2) {
+            document.write(`더하기 : ${n1 + n2}<br>`);
+        }
+        function minus(n1, n2) {
+            document.write(`빼기 : ${n1 - n2}<br>`);
+        }
+        let fn = sum;
+        fn(22, 11);
+        sum(22, 11);
+        minus = sum; // minus의 원래 값이 사라지고 sum의 값이 들어가게 된다.
+        fn = minus;
+        fn(22, 11);
+    </script>
+</body>
+</html>

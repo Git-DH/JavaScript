@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var multi;
+        function addSum() {
+            var sum = 10 + 20; // 함수안의 지역변수(var)는 호이스팅 되지는 않는다.
+            multi = 10 * 20; // var가 빠진 변수 선언은 지양해야하고 전역변수로라도 선언해줘야 한다.
+        }
+        addSum();
+        console.log(multi);
+    </script>
+</body>
+</html>
