@@ -15,7 +15,12 @@
        if(n === '0') {
            break;
        }
+       var val = parseInt(n);
+       if(val) {
+           sum += val;
+       }
    }
+   document.write(`모두 더한 값 : ${sum}`);
     </script>
 </body>
 </html>
