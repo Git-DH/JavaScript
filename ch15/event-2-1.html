@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result { height: 300px; }
+    </style>
+</head>
+<body>
+    <script>
+        const obj = {
+            onclick: null
+        }
+
+        obj.onclick = function(e) {
+            document.write('dd');
+        }
+        const e = {
+            'target' : '누구다',
+            x:111,
+            y:122
+        };
+        obj.onclick(e);
+        // 호출시에 파라미터에 값이 없으면 이벤트 객체를 보낸다.
+    </script>
+</body>
+</html>
