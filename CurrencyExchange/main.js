@@ -47,3 +47,7 @@ document.querySelectorAll('#to-currency-list a').forEach((menu) => menu.addEvent
 })
 );
 
+function convert() {
+    let amount = document.getElementById('from-input').value
+    console.log('돈은', amount);
+}
