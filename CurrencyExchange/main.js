@@ -38,12 +38,43 @@ document.querySelectorAll('#from-currency-list a').forEach((menu) => menu.addEve
     document.getElementById('from-button').textContent = this.textContent;
     // 3. 선택된 currency값을 변수에 저장해준다
     fromCurrency = this.textContent;
+    convert(); // 4,5번 해결부분
 })
 );
 
 document.querySelectorAll('#to-currency-list a').forEach((menu) => menu.addEventListener('click',function(){
     document.getElementById('to-button').textContent = this.textContent;
     toCurrency = this.textContent;
+    re_convert();
 })
 );
+
+// 1. 키를 입력하는 순간
+// 2. 환전이 되서
+// 3. 환전된 값이 보인다.
+
+function convert() {
+    // 1.환전
+    // 2.얼마를 환전? 가지고 있는 돈이 뭔지, 바꾸고자 하는 돈이 뭔지
+    // 돈*환율 = 환전금액
+    let amount = document.getElementById('from-input').value;
+    let convertedAmout = amount * currencyRatio[fromCurrency][toCurrency];
+    console.log(convertedAmout);
+    document.getElementById('to-input').value = convertedAmout;
+}
+
+function re_convert() {
+    // 1.환전
+    // 2.얼마를 환전? 가지고 있는 돈이 뭔지, 바꾸고자 하는 돈이 뭔지
+    // 돈*환율 = 환전금액
+    let amount = document.getElementById('to-input').value;
+    let convertedAmout = amount * currencyRatio[toCurrency][fromCurrency];
+    console.log(convertedAmout);
+    document.getElementById('from-input').value = convertedAmout;
+}
+// 소스코드 보고 부족한 부분 이해하고 css정리하기
+
+
+// 1. 드랍다운 리스트에 값이 바뀔때마다
+// 2. 환전을 다시한다.
 
