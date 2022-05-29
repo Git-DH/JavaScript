@@ -8,7 +8,17 @@
 </head>
 <body>
     <script>
-        // 깃허브 가져오기 (변수 || 상수에 함수를 담을 수 있다.)
+       // (변수 || 상수에 함수를 담을 수 있다.)
+        const sum = function(a, b) {
+            return a + b;
+        }
+
+        const result = sum(10, 20);
+        document.write(`result : ${result}<br>`);
+
+        const fn = sum;
+        const result2 = sum(10, 20);
+        document.write(`result : ${result2}<br>`);
     </script>
 </body>
 </html>

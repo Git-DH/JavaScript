@@ -49,6 +49,7 @@ document.querySelectorAll('#to-currency-list a').forEach((menu) => menu.addEvent
 })
 );
 
+<<<<<<< HEAD
 // 1. 키를 입력하는 순간
 // 2. 환전이 되서
 // 3. 환전된 값이 보인다.
@@ -78,3 +79,9 @@ function re_convert() {
 // 1. 드랍다운 리스트에 값이 바뀔때마다
 // 2. 환전을 다시한다.
 
+=======
+function convert() {
+    let amount = document.getElementById('from-input').value
+    console.log('돈은', amount);
+}
+>>>>>>> 8b8a936679d594c2a156c0466a8f4c9b19798efc

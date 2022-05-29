@@ -11,8 +11,8 @@
 </head>
 <body>
     <ul>
-        <li><a href="#" onclick="changeBg('Green')">Green</a></li>
-        <li><a href="#" onclick="changeBg('Orange')">Orange</a></li>
+        <li><a href="#" id="first_a">Green</a></li>
+        <li><a href="#" id="second_a">Orange</a></li>
         <li><a href="#" onclick="changeBg('Purple')">Purple</a></li>
     </ul>
     <div id="result"></div>
@@ -24,6 +24,28 @@
         // function changeBg(color) {
 
         // } 위와 같이 함수명이 겹치면 아래에 오는 함수가 더 씌워져 위의 함수는 사라진다.
+
+        function changeOrange(){
+            resultDiv.style.backgroundColor = 'orange';
+        }
+
+        const firstA = document.querySelector('#first_a');
+        firstA.onclick = function(){
+            changeBg('green');
+        }
+        // 함수에 객체가 넘어가면 오류가 뜨기 때문에 익명함수를 통해 함수값을 보내줘야한다.
+
+        function bindFn() {
+            return () => {
+                changeBg('orange');
+            }
+        }
+
+        const secondA = document.querySelector('#second_a');
+        secondA.onclick = bindFn(); // onclick에는 무조건 함수의 주소값이 들어간다.
+        // changeOrange가 changeBg로 위의 함수에 들어가게 되면 
+        // 객체가 함수에 들어가는 것이 되어 백그라운드 컬러에 문자열이 
+        // 들어가지 못해 아무런 값도 저장되지 않는다.
     </script>
 </body>
 </html>

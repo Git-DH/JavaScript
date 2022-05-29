@@ -14,9 +14,10 @@
         function minus(n1, n2) {
             document.write(`빼기 : ${n1 - n2}<br>`);
         }
-        let fn = sum;
+        let fn = sum; // 함수는 변수에 담을 수 있다.
         fn(22, 11);
         sum(22, 11);
+
         minus = sum; // minus의 원래 값이 사라지고 sum의 값이 들어가게 된다.
         fn = minus;
         fn(22, 11);
