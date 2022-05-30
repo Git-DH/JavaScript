@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = ['A','B','C']; 
+        const arr2 = arr.concat(['D','E']);
+        // concat: 기존배열에 새로운 배열을 합칠 때 사용한다.
+        console.log(arr2);
+        console.log(arr);
+        console.log(['D','E'].concat(arr));
+
+        // const arr = ['A','B','C']; 
+        // // arr은 상수이지만 주소값이 바뀌지 않으면 건드릴 수 있다.
+        // arr.push('D');
+        // // arr = 의 형태가 되면 에러 주소값을 건드려 에러 터진다.
+        // console.log(arr);
+    </script>
+</body>
+
+</html>

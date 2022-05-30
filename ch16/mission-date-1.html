@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const now = new Date();
+        const writedDay = new Date('2022-05-26 20:20:20');
+
+        //1~59분 전 => 3,540
+        //1~23시간 전 => 82800
+        //1~15일 전 60 * 60 * 24 * 15 => 1,296,000
+        //1~3달 전 60 * 60 * 24 * 30 * 3 => 7,776,000
+        //이후는 날짜      
+        function getPassedInfo(sDate, eDate) {
+            // sDate: 작성시간 , eDate: 현재시간 
+            const sDateMilSec = sDate.getTime();
+            const eDateMilSec = eDate.getTime();
+            const passedSec = (eDateMilSec - sDateMilSec) / 1000;
+
+            if (passedSec < 3599) { // 59분 59초 전
+                const min = Math.floor(passedSec / 60);
+                return `${min}분전`;
+            } else if (passedSec < 86399) { // 1시간 ~ 23시간 사이
+                const hour = Math.floor(passedSec / 3600); // 3600: 1시간을 초로나눔
+                return `${hour}시간 전`;
+            } else if (passedSec < 1296000) {
+                const date = Math.floor(passedSec / 86400); // 86400 = 3600*24
+                return `${date}일 전`;
+            } else if (passedSec < 7776000) {
+                const mon = Math.floor(passedSec / 2592000); // 2592000 = 86400*30
+                return `${mon}달 전`;
+            } else {
+                const year = sDate.getFullYear();
+                const mon = fillZero(sDate.getMonth() + 1);
+                const date = fillZero(sDate.getDate());
+                return `${year}-${mon}-${date}`;
+            }
+        }
+
+        function fillZero(val) {
+            return ('0' + val).slice(-2);
+        }
+
+        const result = getPassedInfo(writedDay, now);
+        console.log(result);
+    </script>
+</body>
+
+</html>

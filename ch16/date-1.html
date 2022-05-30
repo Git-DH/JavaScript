@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const now = new Date();
+        console.log(now); // 현재 날짜 정보
+        const date1 = new Date('2020-05-30 01:00:20');
+        console.log(date1);
+
+        console.log(date1.getFullYear()); // 년도 정보
+        console.log(date1.getMonth() + 1);
+        console.log(date1.getDay()); // 일 ~ 토 0:일요일, 1:월요일
+        console.log(now.getTime());
+        console.log(now.getHours());
+        console.log(now.getMinutes());
+        console.log(now.getSeconds());
+        console.log(now.getMilliseconds());
+
+        // 객체안에는 클래스, 멤버필드, 메소드가 있다.
+        // 멤버필드는 변수, 상수로 값이 외부로 보여지고 get을 쓴다.
+        // 메소드는 은닉화 되어 있고 set을 사용한다.
+        // 멤버필드는 순서가 상관 없지만 메소드는 순서에 맞춰서 실행한다.
+    </script>
+</body>
+</html>
