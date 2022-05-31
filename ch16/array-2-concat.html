@@ -13,6 +13,7 @@
         const arr = ['A','B','C']; 
         const arr2 = arr.concat(['D','E']);
         // concat: 기존배열에 새로운 배열을 합칠 때 사용한다.
+        // 원본은 건드리지 않는 비파괴이다.
         console.log(arr2);
         console.log(arr);
         console.log(['D','E'].concat(arr));

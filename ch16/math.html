@@ -8,7 +8,64 @@
 </head>
 <body>
     <script>
+        Math.PI = 1.1; // 값이 바뀌지 않음
         console.log(Math.PI);
+        console.log(Math.ceil(12.1));
+        console.log(Math.round(12.1));
+        console.log(Math.round(12.5));
+        console.log(Math.floor(12.9));
+        console.log(Math.random());
+        console.log(Math.random());
+
+
+        // 0 ~ 9
+        const rVal = Math.floor(Math.random() * 10);
+        console.log(rVal);
+
+        // 1 ~ 9
+        const rVal2 = Math.ceil(Math.random() * 9);
+        console.log(rVal2);
+
+        // while(true){
+        //     const rVal2 = Math.ceil(Math.random() * 9);
+
+        //     if(rVal2 < 1 || rVal2 > 9) {
+        //         console.log('잘 못 만들었음');
+        //         break;
+        //     }
+        // }
+
+        // 10 ~ 20 앞자리 숫자가 더해진다.
+        const rVal3 = Math.floor(Math.random() * 11) + 10;
+        console.log(rVal3);
+
+        // while(true){
+        //     const rVal3 = Math.floor(Math.random() * 11) + 10 ;
+
+        //     if(rVal3 < 10 || rVal3 > 20) {
+        //         console.log('잘 못 만들었음');
+        //         break;
+        //     }
+        // }
+
+        // 25 ~ 50
+        const rVal4 = Math.floor(Math.random() * 26) + 25;
+        console.log(rVal4);
+
+        // 25 ~ 40
+        const rVal5 = Math.floor(Math.random() * 16) + 25;
+        console.log(rVal5);
+
+        // while(true){
+        //     const rVal5 = Math.floor(Math.random() * 16) + 25;
+        //     if(rVal5 < 25 || rVal5 > 40) {
+        //         console.log('잘 못 만들었음');
+        //         break;
+        //     }
+        // }
+
+        // Math.floor(Math.random() * (max - min + 1)) + min
+
     </script>
 </body>
 </html>

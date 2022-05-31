@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function randomValue(sVal, eVal) {
+            return Math.floor(Math.random() * (eVal - sVal + 1)) + sVal;
+        }
+
+        const result = randomValue(10, 20);
+        console.log(result);
+
+        // while(true) {
+        //     const result = randomValue(10, 20);
+        //     if(result < 10 || result > 20){
+        //         break;
+        //     }
+        // }
+
+        // <window 객체의 프로퍼티>
+        // localstorage 와 sessionstorage
+        // 공통점: 값을 저장하여 사용하려는 목적은 같다. / 문자열만 저장되어 객체 저장이 불가능하다.
+        // 차이점: 스코프(저장값이 살아있는 범위)가 다르다. ( 로컬: 사람, 세션: 하루살이) 
+        // 객체 > 문자열(JSON)
+        // 문자열 > 객체(원하는 값을 가져오기 편하다)
+    </script>
+</body>
+
+</html>
