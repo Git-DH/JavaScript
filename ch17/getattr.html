@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="prod-pic">
+        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDA3MjFfMTU5%2FMDAxNTk1MzQyMDM0NDIz.q8BAUH_1werGnlyWFmXXpNoOWcFCHGCxOpL4vlvcdecg.tgqe1Isau1LDYErnYeaZ30WUo2Il5eYb33G6fhiV8V0g.JPEG%2FexternalFile.jpg&type=sc960_832"
+            alt="고양이" id="camera" width="200" height="200" 
+            onclick="displaySrc();" abc="안녕">
+    </div>
+    <script>
+        const camera = document.querySelector('#camera');
+        function changePic() {
+            // 누구의 무엇을 어떤값으로
+            camera.src = 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDA3MjFfMTU5%2FMDAxNTk1MzQyMDM0NDIz.q8BAUH_1werGnlyWFmXXpNoOWcFCHGCxOpL4vlvcdecg.tgqe1Isau1LDYErnYeaZ30WUo2Il5eYb33G6fhiV8V0g.JPEG%2FexternalFile.jpg&type=sc960_832'
+            
+            // 누구의           무엇을 어떤값으로
+            camera.setAttribute('src','https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDA3MjFfMTU5%2FMDAxNTk1MzQyMDM0NDIz.q8BAUH_1werGnlyWFmXXpNoOWcFCHGCxOpL4vlvcdecg.tgqe1Isau1LDYErnYeaZ30WUo2Il5eYb33G6fhiV8V0g.JPEG%2FexternalFile.jpg&type=sc960_832')
+        }
+        function displaySrc() {
+            console.log('abc: ' + camera.getAttribute('abc'));
+            // 위아래 접근방식이 다를 뿐 같은 내용이다.
+            // getAttribute: 원래 있는 속성외의 것을 가져오기 위해서는 사용해야한다.
+            // 원래 존재하는 속성은 camera.src방식으로 사용이 가능하다.
+            console.log('.src : ' + camera.src);
+            console.log('.alt : ' + camera.alt);
+            console.log('.id : ' + camera.id);
+            console.log('.width : ' + camera.width);
+            console.log('.height : ' + camera.height);
+            console.log('.onclick : ' + camera.onclick);
+        }
+    </script>
+</body>
+
+</html>

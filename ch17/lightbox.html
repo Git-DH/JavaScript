@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body { height: 100%; }        
+        ul { list-style: none; }
+        li { display: inline-block; }
+        .pic { width: 200px; cursor: pointer; }
+        #lightbox { 
+            height: 100%; width: 100%; background-color: #00000066;  display: none;  
+            justify-content: center;  align-items: center; position: fixed; left: 0; top: 0;
+        }      
+        #lightbox > img { border: 2px solid #fff; } 
+    </style>
+</head>
+<body>
+    <div class="row">
+        <ul>
+            <li><img class="pic" src="https://i.picsum.photos/id/668/500/300.jpg?hmac=AW8K0gj9uyjAm6pNwcFcQ8iycFCzN6doL4MROna3YJ4"></li>
+            <li><img class="pic" src="https://i.picsum.photos/id/1029/500/300.jpg?hmac=eVIGXXfRthi6gqyIlKj-5vEn0KRnaUwCcUFhZi1wgXg"></li>
+            <li><img class="pic" src="https://i.picsum.photos/id/305/500/300.jpg?hmac=OLcz1VBLWWeA1lXKNgREsngR7CyjghZrI5AJCW9azAg"></li>
+        </ul>
+    </div>
+    <div id="lightbox">
+        <img id="lightboxImage" src="https://i.picsum.photos/id/668/500/300.jpg?hmac=AW8K0gj9uyjAm6pNwcFcQ8iycFCzN6doL4MROna3YJ4">
+    </div>
+    <script>
+        const lightbox = document.querySelector('#lightbox');
+        const lightboxImage = lightbox.querySelector('#lightboxImage');
+        function showLightbox() {
+            const bigLocation = this.src;
+            lightboxImage.setAttribute('src', bigLocation);
+            lightbox.style.display = 'flex';
+        }
+        const imgs = document.querySelectorAll('.pic');
+        imgs.forEach(item => {
+            item.addEventListener('click', showLightbox);
+        });
+
+        lightboxImage.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+        });
+
+    </script>
+</body>
+</html>

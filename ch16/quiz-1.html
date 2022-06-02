@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현재 시각</title>
+</head>
+<body>
+    <p>현재 시각 <span id="current" class="display"></span></p>
+    <button onclick="stopInter();">멈춰!!</button>
+    <script>
+        let cnt = 0;
+        const interObj = setInterval(function() {
+            const now = new Date();
+            document.querySelector('#current').innerHTML = now.toLocaleTimeString();
+        }, 1000);
+
+        function stopInter() {
+            clearInterval(interObj);
+        }
+
+    </script>
+</body>
+</html>
