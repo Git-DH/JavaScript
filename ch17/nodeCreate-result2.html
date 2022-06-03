@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c_pointer { cursor: pointer; }
+        .parent { display: flex;  padding: 5px 0; }
+        .parent > .content { flex-grow: 1; }
+        .parent > .close { width: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Web Programming</h1>
+    <p>공부할 주제를 기록해 보세요.</p>
+    <div>
+        <input type="text" id="subject" value="">
+        <input type="button" value="추가" onclick="newReg();">
+        <input type="button" value="삭제" onclick="delSubject();">
+    </div>
+    <div id="itemList">
+        <div class="parent">
+            <div class="content">test1</div>
+            <div class="close c_pointer">X</div>
+        </div>  
+        <div class="parent">
+            <div class="content">ddd</div>
+            <div class="close c_pointer">X</div>
+        </div>
+    </div>
+    <script>
+        const inputSubject = document.querySelector('#subject');        
+        const divItemList = document.querySelector('#itemList');
+       
+        function newReg() {
+            const txt = inputSubject.value;
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('parent');
+            newDiv.innerHTML = `
+                <div class="content">${txt}</div>
+                <div class="close c_pointer">X</div>
+            `;            
+            divItemList.appendChild(newDiv);     
+            const divClose = newDiv.querySelector('.close');
+            divClose.addEventListener('click', function() {
+                //newDiv.remove();
+                this.parentElement.remove();
+            });            
+            inputSubject.value = '';
+        }
+
+        function delSubject() {
+            divItemList.lastChild.remove();
+            /*
+            const pList = divItemList.querySelectorAll('p');
+            pList[pList.length - 1].remove();
+            */
+        }
+    </script>
+</body>
+</html>

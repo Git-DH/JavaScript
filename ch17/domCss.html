@@ -23,6 +23,8 @@
 
         divRect.addEventListener('mouseout', function(){
             this.style.backgroundColor = null;
+            // background-color는 사이에 -가 들어가지만 변수에 -는 사용불가다.
+            // 그래서 카멜기법을 통해 -가 들어가는 부분에서 대문자로 구분을 했다.
             this.style.borderRadius = null;
         });
     </script>

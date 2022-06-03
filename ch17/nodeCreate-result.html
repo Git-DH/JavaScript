@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c_pointer { cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Web Programing</h1>
+    <p>공부할 주제를 기록해 보세요.</p>
+    <div>
+        <input type="text" id="subject" value="">
+        <input type="button" value="추가" onclick="newReg();">
+        <input type="button" value="삭제" onclick="delSubject();">
+    </div>
+    <div id="itemList"></div>
+    <script>
+        const itemList = document.querySelector('#itemList');
+        const inputSubject = document.querySelector('#subject');
+        const classList = document.querySelector('.c_pointer'); 
+        function newReg() {
+            const newDiv = itemList.appendChild(document.createElement('div'));
+            const txt = inputSubject.value;
+            newDiv.classList.add('c_pointer');
+            // newDiv.addEventListener('click',() => newDiv.remove());
+            // newDiv.addEventListener('click', function() {
+            //     this.remove();
+            // });
+            newDiv.onclick = () => newDiv.remove();
+            newDiv.append(txt);  // 밸류값 가져오는게 관건
+            inputSubject.value = null;
+            // 객체한테 접근하는건 . 이다.
+        }
+
+        function delSubject() {
+            // const del = document.querySelector('#itemList > div:last-child');
+            // del.remove();
+            itemList.lastChild.remove();
+        }
+        
+    </script>
+</body>
+</html>

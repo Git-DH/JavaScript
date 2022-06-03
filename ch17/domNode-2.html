@@ -13,15 +13,17 @@
         <div id="info"></div>
     </div>
     <script>
+        // 깃허브 보고 수정하기
         let cnt = 1;
         function addP() {
-            const newP = document.createElement('p');
+            const newP = divInfo.appendChild(document.createElement('p'));
             const txt = `DOM은 document object model의 줄임말입니다. ${cnt++}`;
             // const txtNode = document.createTextNode(txt);
             newP.append(txt);
+            // append: 자식뒤에 붙여준다는 뜻
             document.querySelector('#info').appendChild(newP);
-            // appendChild: 객체만 들어 갈 수 았다.
-            // append: 객체 말고 문자열도 들어 갈 수 있다. 
+            // appendChild: 객체 하나만 들어 갈 수 았다. / return이 존재한다.
+            // append: 객체 말고 문자열도 들어 갈 수 있다. / 여러개도 입력가능
         }
 
         // let cnt = 1;
