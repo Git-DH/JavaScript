@@ -14,7 +14,7 @@
 </head>
 <body>
     <h1>Web Programming</h1>
-    <p>공부할 주제를 기록해 보세요.</p>
+    <p>공부할 주제를 기록해 보세요. ver.2</p>
     <div>
         <input type="text" id="subject" value="">
         <input type="button" value="추가" onclick="newReg();">
@@ -45,8 +45,11 @@
             divItemList.appendChild(newDiv);     
             const divClose = newDiv.querySelector('.close');
             divClose.addEventListener('click', function() {
-                //newDiv.remove();
+                //newDiv.remove(); / 부모 주소값을 알 경우 사용
+                // divClose.parentElement.remove(); /위의 코드와 같음
                 this.parentElement.remove();
+                // this: 메모리의 주소값이 들어가 있는 것(객체의 주소 값)
+                // 애로우 펑션을 사용하면, this가 함수 그 자체가 되어 this값이 달라진다.
             });            
             inputSubject.value = '';
         }

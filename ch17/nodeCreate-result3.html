@@ -11,25 +11,31 @@
 </head>
 <body>
     <h1>Web Programing</h1>
-    <p>공부할 주제를 기록해 보세요. ver.1</p>
+    <p>공부할 주제를 기록해 보세요. ver.3</p>
     <div>
         <input type="text" id="subject" value="">
         <input type="button" value="추가" onclick="newReg();">
+        <input type="number" id="delIdx" style="width: 30px" value="1";>
         <input type="button" value="삭제" onclick="delSubject();">
     </div>
     <div id="itemList"></div>
     <script>
         const itemList = document.querySelector('#itemList');
         const inputSubject = document.querySelector('#subject');
-        const classList = document.querySelector('.c_pointer'); 
+        const inputDelIdx = document.querySelector('#delIdx');
+
+        inputSubject.addEventListener('keyup', function(e){
+            // console.log(e.keyCode);
+            // 콘솔로그를 통해 엔터키의 키코드 번호를 알아냄
+           if(e.keyCode === 13) {
+                newReg();
+            }
+        });
+
         function newReg() {
             const newDiv = itemList.appendChild(document.createElement('div'));
             const txt = inputSubject.value;
-            newDiv.classList.add('c_pointer');
             // newDiv.addEventListener('click',() => newDiv.remove());
-            // newDiv.addEventListener('click', function() {
-            //     this.remove();
-            // });
             newDiv.onclick = () => newDiv.remove();
             newDiv.append(txt);  // 밸류값 가져오는게 관건
             inputSubject.value = null;
@@ -37,9 +43,11 @@
         }
 
         function delSubject() {
-            // const del = document.querySelector('#itemList > div:last-child');
-            // del.remove();
-            itemList.lastChild.remove();
+           const delIdx = Number(inputDelIdx.value);
+        //    itemList.removeChild(itemList.children[delIdx - 1]);
+           itemList.children[delIdx - 1].remove();
+        //    delIdx - 1은 배열이 0번부터 시작하기 때문에 넣었다.
+        //    프로그래밍은 적게 적을 수 있음 적게 적는게 좋다.
         }
         
     </script>
