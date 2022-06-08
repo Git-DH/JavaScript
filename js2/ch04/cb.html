@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+        // 콜백 함수: 파라미터(매개변수)에 들어가는 함수
         function calc(cb, n1, n2) {
             return cb(n1, n2);
         }
@@ -23,7 +24,7 @@
         
         const r1 = calc(fnSum, 10, 20);
         console.log(r1);
-
+        
         const r2 = calc(fnMulti, 10, 20);
         console.log(r2);
 

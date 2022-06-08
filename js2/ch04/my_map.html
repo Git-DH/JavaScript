@@ -27,6 +27,7 @@
                 const tempArr = [];
                 for(let i=0; i<this.length; i++){
                     tempArr.push(cb(this[i], i));
+                    // 배열에 값 넣는 건 push사용
                 }
                 return tempArr;
             }
