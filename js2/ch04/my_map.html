@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myArr = {
+            '0' : 10,
+            '1' : 43,
+            '2' : 22,
+            '3' : 38,
+            '4' : 17,
+            '5' : 56,
+            '6' : 47,
+            'length' : 7,
+            'forEach' : function(cb) {
+                for(let i=0; i<this.length; i++) {
+                    // 객체에 소속되어 있을 때 this는 객체 자신이다.
+                    cb(this[i], i);
+                }
+            },
+            'map' : function(cb) {
+                const tempArr = [];
+                for(let i=0; i<this.length; i++){
+                    tempArr.push(cb(this[i], i));
+                }
+                return tempArr;
+            }
+        }
+
+        const arr2 = myArr.map(function(item) {
+              return item + 2;
+          });
+        //   console.log(arr.toString());
+          console.log(arr2.toString());
+
+        const standIdx = 4
+        const arr3 = myArr.map(function(item, idx){
+            return idx >= standIdx -1  ? item * 2 : item;
+        });
+        console.log(arr3.toString());
+        // map: 주소값이 다르면서 원본과 똑같은 크기의 배열을 만드는 함수
+        // forEach는 보이드 함수이고 map은 리턴이 되는 함수다.
+    </script>
+</body>
+</html>
