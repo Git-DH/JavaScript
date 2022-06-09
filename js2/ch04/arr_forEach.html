@@ -15,9 +15,11 @@
         }
         arr.forEach(fnSum);
         //  forEach메소드에 함수를 보냄
+        //  forEach는 보이드 함수이고 파라미터 안의 함수의 리턴값도 받지 않는다.
+        //  보이드가 아니면 console.log(forEach(fnSum));와 같은 형태가 가능해야 한다.
         console.log(sum);
         console.log('-------------------');
-
+        
         let sum2 = 0;
         arr.forEach(function(item) {
             sum2 += item;

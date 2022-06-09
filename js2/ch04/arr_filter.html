@@ -10,9 +10,10 @@
     <script>
         const arr = [10, 43, 22, 38, 17, 56, 47];
         const arr2 = arr.filter(function(item, idx) {
-            if(item % 2 === 0) {
-                return true;
-            }
+            // if(item % 2 === 0) {
+            //     return true;
+            // }
+            return item % 2 === 0;
             // filter: 원하는 조건의 값을 배열에서 뽑아 올 수는 있지만 값을 수정하지는 못 한다.
         });
         console.log(arr.toString());
@@ -20,7 +21,8 @@
 
         const arr3 = arr.filter(function(item, idx) {
             // if(idx % 2 === 0) { return true; }
-            return idx % 2 === 0 ? 1 : 0;
+            // return idx % 2 === 0 ? 1 : 0;
+            return idx % 2 === 0;
         });
         console.log(arr3.toString());
     </script>
