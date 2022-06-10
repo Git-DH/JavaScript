@@ -36,14 +36,14 @@
                 for(let i=0; i<this.length; i++) {
                     if(cb(this[i],i)) {
                         tempArr.push(this[i]);
-                    }
+                    }   
                 }
                 return tempArr;
             },
             'toString' : function() {
                 let str = '[';
                 for(let i=0; i<this.length; i++) {
-                    str += i < this.length - 1 ? `${this[i]},` : `${this[i]}]`;
+                    str += i < this.length - 1 ? `${this[i]},` : `${this[i]}]`;   
                 }
                 return str;
             }

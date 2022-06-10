@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #f5f5f5;
+        }
+
+        .listing-card {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .listing-card li {
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #f0f0f0;
+
+        }
+
+        .listing-card li .img {
+            padding-top: 70%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul id="list" class="listing-card">
+            <!-- <li>
+                <div class="img"></div>
+                <div class="info">
+                    <strong class="auther"></strong>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+    <button onclick="getDate();">데이터 가져오기</button>
+    <script>
+        let page = 1;
+        const ulList = document.querySelector('#list');
+
+        function getDate() {
+            console.log(`page: ${page}`);
+            const url = `https://picsum.photos/v2/list?limit=5&page=${page++}`;
+            fetch(url).then(function (res) {
+                return res.json();
+            }).then(function (date) {
+                makeList(date);
+            });
+        }
+
+        function makeList(date) {
+            date.forEach(function (item) {
+                const list = makeImg(item);
+                ulList.appendChild(list);
+            });
+        }
+
+        function makeImg(item) {
+            const list = document.createElement('li');
+            const width = parseInt(item.width * 0.1);
+            const height = parseInt(item.height * 0.1);
+            list.innerHTML = `<div class="img" style="background-image: url(${item.download_url});"></div>
+                              <div class="info">
+                              <strong class="auther">${item.author}</strong>
+                              </div>`
+            return list;
+        }
+    </script>
+</body>
+
+</html>
