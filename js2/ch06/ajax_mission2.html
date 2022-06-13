@@ -83,6 +83,7 @@
             const list = document.createElement('li');
             const width = parseInt(item.width * 0.1);
             const height = parseInt(item.height * 0.1);
+            const src = `https://picsum.photos/id/${item.id}/${width}/${height}`; 
             list.innerHTML = `<div class="img" style="background-image: url(${item.download_url});"></div>
                               <div class="info">
                               <strong class="auther">${item.author}</strong>

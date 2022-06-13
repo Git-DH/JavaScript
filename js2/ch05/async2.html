@@ -14,6 +14,7 @@
             return result;
         }
         console.log(sum(10, 20));
+        // 통신이 없는 부분
 
         function sum2(n1, n2) {
             let result = 0;
@@ -23,6 +24,9 @@
             return result;
         } 
         console.log(sum2(10, 20));
+        // 통신이 들어가 있다.
+        // setTimeout으로 통신이 느려져 setTimeout을 읽지않고 
+        // 처음의 result=0만 읽고 리턴을 시켜버린다.
     </script>
 </body>
 </html>

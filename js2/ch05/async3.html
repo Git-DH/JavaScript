@@ -7,6 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    <script></script>
+    <script>
+        // setTimeout의 인자(아규먼트)는 무조건 2개다.
+
+        // 콜백 지옥
+        // 1
+        setTimeout(function() {
+            console.log('A');
+            
+            //2
+            setTimeout(function() {
+                console.log('B');
+                
+                //3
+                setTimeout(function() {
+                    console.log('C');
+
+                    console.log('어쩌고 저쩌고');
+                }, 2000);            
+
+            }, 2500);
+            
+        }, 3000);  
+    </script>
 </body>
 </html>

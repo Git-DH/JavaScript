@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        img { width: 200px; }
-    </style>
+    <title>Document</title>    
 </head>
-
 <body>
     <div id="list"></div>
     <button onclick="getData();">데이터 가져오기</button>
@@ -20,32 +15,30 @@
 
         function getData() {
             console.log(`page : ${page}`);
-
-            const url = `https://picsum.photos/v2/list?limit=30&page=${page++}`;
-            fetch(url).then(function (res) {
-                // then이 있으므로 promise다. res = resolve
+            const url = `https://picsum.photos/v2/list?limit=30&page=${page++}`;        
+            fetch(url).then(function(res) {            
                 return res.json();
-                // promise객체를 리턴
-            }).then(function(data) {
-                // 원하는 data가 넘어 옴
+            }).then(function(data) {                                
                 makeList(data);
             });
         }
+        // 인피니티 스크롤 방식과 비슷하다(함수 실행 이벤트의 차이)
 
         function makeList(data) {
-            data.forEach(function(item){
-                const img = makeImg(item);
+            data.forEach(function(item) {
+                const img = makePoster(item);
                 divList.appendChild(img);
             });
         }
 
-        function makeImg(item) {
+        function makePoster(item) {
             const img = document.createElement('img');
-            img.src = item.download_url;
+            const width = parseInt(item.width * 0.1);
+            const height = parseInt(item.height * 0.1);
+            img.src = `https://picsum.photos/id/${item.id}/${width}/${height}`;            
             return img;
         }
-
+        
     </script>
 </body>
-
 </html>

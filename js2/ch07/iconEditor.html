@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function elt(name, attr) {
+            const node = document.createElement(name);
+            if (attr) {
+                for (const item in attr) {
+                    if (attr.hasOwnProperty(item)) {
+                        node.setAttribute(item, attr[item]);
+                    }
+                }
+            }
+            return node;
+        }
+
+        function createIconEditor(parent, nx, ny) {
+            // color onput
+            const inputColor = elt('input', { type: 'color' });
+            parent.appendChild(inputColor);
+
+            // All Clear
+            const btnAllClear = elt('input', { type: 'button', value: 'AllClear' });
+            parent.appendChild(btnAllClear);
+
+            const table = elt('table');
+            parent.appendChild(table);
+
+            table.style.borderCollapse = 'collapse';
+            table.style.marginTop = '10px';
+
+
+
+            for (let i = 0; i < ny; i++) {
+                const tr = elt('tr');
+                table.appendChild(tr);
+                for (let z = 0; z < nx; z++) {
+                    const td = elt('td');
+                    tr.appendChild(td);
+
+                    td.style.width = td.style.height = '15px';
+                    td.style.border = '1px solid #000';
+                    td.addEventListener('click', function(e) {
+                        this.style.backgroundColor = this.style.backgroundColor === '' ? inputColor.value : '';
+                    });
+                }
+
+            }
+        }
+
+        createIconEditor(document.body, 10, 5); // nx: 칸, ny: 줄
+
+        // const inputColor = document.querySelector('input[type="color"]');
+        // const tds = document.querySelectorAll('td');
+        // tds.forEach(function (item) {
+        //     item.addEventListener('click', function () {
+        //         this.style.backgroundColor = inputColor.value;
+        //     })
+        // })
+
+        // 1. input color의 밸류값 필요(가져오기)
+        // 2. td여러개 불러오기
+        // 3. td클릭 이벤트 주기
+        // 4. 클릭시 td백그라운드 변경 - 인풋 컬러의 밸류값으로 변경
+    </script>
+</body>
+
+</html>
