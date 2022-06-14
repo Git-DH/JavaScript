@@ -9,7 +9,6 @@
 <body>
     <script>
         // hasOwnProperty: 객체가 특정 프로퍼티에 대한 소유 여부를 반환한다.
-        // 해당 객체에 특정 프로퍼티가 존재하면 true, 그렇지 않으면 false 를 반환한다.
         const obj1 = {
             name: '홍길동',
             age: 20
@@ -26,11 +25,12 @@
         }
         Human.prototype.height = 172.2;
         const obj2 = new Human('홍길동', 21);
+        // new 객체의 형태로 만들어 지는 같은형태의 객체는 같은 프로토타입을 가진다.
         console.log(obj2.hasOwnProperty('name'));
         console.log(obj2.hasOwnProperty('age'));
         obj2.addr = '제주도';
         console.log(obj2.hasOwnProperty('addr'));
-        // obj2.height = 182.2;
+        obj2.height = 182.2; // 부모에게 존재하고 본인도 가지고 있어서 true
         console.log(obj2.height);
         console.log(obj2.hasOwnProperty('height'));
     </script>
