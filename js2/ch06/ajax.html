@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img { width: 200px; }
+    </style>
+</head>
+
+<body>
+    <div id="list"></div>
+    <button onclick="getData();">데이터 가져오기</button>
+    <script>
+        let page = 1;
+        const divList = document.querySelector('#list');
+
+        function getData() {
+            console.log(`page : ${page}`);
+
+            const url = `https://picsum.photos/v2/list?limit=30&page=${page++}`;
+            fetch(url).then(function (res) {
+                // then이 있으므로 promise다. res = resolve
+                return res.json();
+                // promise객체를 리턴
+            }).then(function(data) {
+                // 원하는 data가 넘어 옴
+                makeList(data);
+            });
+        }
+
+        function makeList(data) {
+            data.forEach(function(item){
+                const img = makeImg(item);
+                divList.appendChild(img);
+            });
+        }
+
+        function makeImg(item) {
+            const img = document.createElement('img');
+            img.src = item.download_url;
+            return img;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // f1~f3은 통신!
+        // fn1 리턴값을 fn2에 전달
+        // fn2 리턴값을 fn3에 전달
+
+        function fn1() {
+            return new Promise(function (resolve) {
+                resolve(10);
+            });
+        } // 통신이 끝나야 리턴값을 보낸다.
+
+        function fn2(val) {
+            return new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve(val * 2);
+                   // return val * 2;
+                }, 2000);
+            })
+        }
+        // 통신(setTimeout)이 없다면 결과값이 리턴 되지만 
+        // promise를 사용하지 않으면 그냥 지나간다.
+
+        // 통신이 있는경우 그냥 리턴값은 못 받는다. 
+        // 그래서 promise를 리턴하고 그안의 resolve를 받는다.
+
+        const result = fn2(10);
+        result.then(function(val) {
+            console.log(val);
+        })
+    </script>
+</body>
+
+</html>

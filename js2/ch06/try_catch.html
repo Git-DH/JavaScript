@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // try_catch: 에러위험이 높은 것을 찾아서 예외로 처리하는것
+        // try와 catch는 항상 같이 써야한다.
+        try{ // try 안쪽에 에러가 날 가능성이 높은 코드를 작성한다.
+            console.log('AAAA');
+            const result = new Array(-1);
+            console.log('BBBB');
+            // 예외발생이 된 코드 밑에 있으면 실행이 안된다.
+        } catch(e) {
+            console.log(e);
+            // 에러가 뜨는 부분을 이곳에서 알려줌
+            // 에러가 없으면 실행 안됨
+        }
+
+        console.log('(1) try_catch 끝');
+
+        console.log('-----------------');
+
+        try {
+            console.log('AAAA');
+            console.log('BBBB');
+            console.log('CCCC');
+        } catch { // 예외가 생길경우에만 실행 됨
+            console.log(e.name); // 예외발생이 없으면 실행 안 됨
+        } finally { // 예외 발생과 상관없이 실행이 된다.
+            console.log('무조건 실행 됨');
+        }
+        // finally는 함수를 사용할 때 그냥 호출 하는것과 차이가 난다.
+
+        console.log('(2) try_catch 끝');
+
+        console.log('------------------');
+        
+       
+    </script>
+</body>
+</html>

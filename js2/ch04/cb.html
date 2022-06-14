@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 콜백 함수: 파라미터(매개변수)에 들어가는 함수
+        function calc(cb, n1, n2) {
+            return cb(n1, n2);
+        }
+
+        function fnSum(n1, n2) {
+            return n1 + n2;
+        }
+        
+        function fnMulti(n1, n2) {
+            return n1 * n2;
+        }
+
+        
+        const r1 = calc(fnSum, 10, 20);
+        console.log(r1);
+        
+        const r2 = calc(fnMulti, 10, 20);
+        console.log(r2);
+
+        const r3 = calc(function(n1, n2) {
+            return n1 - n2;
+        }, 100, 20);
+        console.log(r3);
+
+        // 나누기 결과값 나오게
+
+        const r4 = calc(function(n1, n2) {
+            return n1 / n2;
+        }, 100, 10 );
+        console.log(r4);
+
+        const r5 = calc(function(n1, n2) {
+            return n1 * n2;
+        }, 10, 30);
+        console.log(r5);
+
+        const r6 = calc(function(n1, n2) {
+            return n1 + n2;
+        }, 10, 50);
+        console.log(r6);
+
+        const r7 = calc(fnMulti, 8, 10);
+        console.log(r7);
+
+
+    </script>
+</body>
+</html>

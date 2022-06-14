@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 10px auto;
+        }
+
+        .listing-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .listing-card li {
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #f0f0f0;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <ul id="list" class="listing-card">
+            <li>
+                <div class="img"></div>
+                <div class="info">
+                    <strong class="auther">adsfasdf</strong>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <button onclick="getDate();">데이터 가져오기</button>
+    <script>
+        let page = 1;
+        const ulList = document.querySelector('#list');
+
+        function getDate() {
+            console.log(`page: ${page}`);
+            const url = `https://picsum.photos/v2/list?limit=30&page=${page++}`;
+            fetch(url).then(function (res) {
+                return res.json();
+            }).then(function (date) {
+                makeList(date);
+            });
+        }
+
+        function makeList(date) {
+            date.forEach(function (item) {
+                const img = makeImg(item);
+                ulList.appendChild(img);
+            });
+        }
+
+        function makeImg(item) {
+            const img = document.createElement('img');
+            const width = parseInt(item.width * 0.1);
+            const height = parseInt(item.height * 0.1);
+            img.src = `https://picsum.photos/id/${item.id}/${width}/${height}`;
+            // img.src = `https://picsum.photos/id/${item.id}/${~~(item.width*0.1)}/${~~(item.height*0.1)}`;
+            return img;
+        }
+    </script>
+</body>
+
+</html>

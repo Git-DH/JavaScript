@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function elt(name, attr) {
+            const node = document.createElement(name);
+            if (attr) {
+                for (const item in attr) {
+                    if (attr.hasOwnProperty(item)) {
+                        // hasOwnProperty: 객체가 특정 프로퍼티를 가지고 있는지를 확인하는 메소드
+                        // for in 안에는 부모의 프로퍼티도 존재하기 때문에 
+                        // 부모의 속성과 겹치지 않는지 확인하는 메소드
+                        // 부모에게 상속받은거거나 없으면 false
+                        // 순수 본인의 프로퍼티와 부모와 같이 가지고 있으면 true
+                        // new를 이용해 만든 객체만 부모속성을 가질 수 있다.
+                        node.setAttribute(item, attr[item]);
+                        // 선택한 요소(element)의 속성(attribute) 값을 정한다.
+                        // setAttribute(속성이름, 속성값)
+                    }
+                }
+            }
+            return node;
+        }
+
+        function createIconEditor(parent, nx, ny) {
+            // color onput
+            const inputColor = elt('input', { type: 'color' });
+            parent.appendChild(inputColor);
+
+            // All Clear
+            const btnAllClear = elt('input', { type: 'button', value: 'AllClear' });
+            btnAllClear.addEventListener('click', function(e) {
+                const tdList = document.querySelectorAll('td');
+                console.log(tdList);
+                tdList.forEach(function(item) {
+                    item.style.backgroundColor = '';
+                });
+            })
+            parent.appendChild(btnAllClear);
+
+            const table = elt('table');
+            parent.appendChild(table);
+
+            table.style.borderCollapse = 'collapse';
+            table.style.marginTop = '10px';
+
+            for (let i = 0; i < ny; i++) {
+                const tr = elt('tr');
+                table.appendChild(tr);
+                for (let z = 0; z < nx; z++) {
+                    const td = elt('td');
+                    tr.appendChild(td);
+
+                    td.style.width = td.style.height = '15px';
+                    td.style.border = '1px solid #000';
+                    td.addEventListener('click', function (e) {
+                        if(this.style.backgroundColor === '' ||  this.color16 !== inputColor.value){
+                            this.style.backgroundColor = inputColor.value;
+                            this.color16 = inputColor.value;
+                        } else {
+                            this.style.backgroundColor = '';
+                        }
+                    });
+                    // btnAllClear.addEventListener('click', function () {
+                    //     td.style.backgroundColor = '';
+                    // });
+                }
+            }
+        }
+
+
+        createIconEditor(document.body, 10, 5); // nx: 칸, ny: 줄
+
+        // const inputColor = document.querySelector('input[type="color"]');
+        // const tds = document.querySelectorAll('td');
+        // tds.forEach(function (item) {
+        //     item.addEventListener('click', function () {
+        //         this.style.backgroundColor = inputColor.value;
+        //     })
+        // })
+
+        // 1. input color의 밸류값 필요(가져오기)
+        // 2. td여러개 불러오기
+        // 3. td클릭 이벤트 주기
+        // 4. 클릭시 td백그라운드 변경 - 인풋 컬러의 밸류값으로 변경
+    </script>
+</body>
+
+</html>

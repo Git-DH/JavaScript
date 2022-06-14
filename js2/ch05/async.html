@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 멀티 프로세싱 : CPU 입장, 코어가 1개일때 시분할 처리os
+        // 멀티 스레드 : 소프트웨어 입장
+
+        // 비동기 : 작업이 끝날때 까지 기다리지 않는 것, 스레드가 1개만 있다고 가정 
+        // => 내 움직임이 끝나야 다른사람이 움직일 수 있다.(턴제게임)
+        // => 작업시간이 느리면 작업순서를 기다리지 않고 지나가버림(통신이 느린작업, for문이 긴거는 느린게 아님)
+        // => 지나가 버리면 값을 읽지 않아서 undefined가 뜬다.
+        console.log('A');
+        console.log('B');
+        console.log('C');
+        console.log('D');
+        console.log('-----------');
+
+        setTimeout(function() {
+        // 처리속도를 조절하는 함수, js에서 느린 작업은 딜레이가 생기는 작업이다.
+        // 통신을 하는 것이다.
+        console.log('A');
+        }, 3000);
+
+        setTimeout(function() {
+        console.log('B');
+        }, 2500);
+
+        setTimeout(function() {
+        console.log('C');
+        }, 2000);
+    </script>
+</body>
+</html>

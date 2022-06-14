@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const myArr = {
+            '0': 10,
+            '1': 43,
+            '2': 22,
+            '3': 38,
+            '4': 17,
+            '5': 56,
+            '6': 47,
+            'length': 7,
+            'forEach': function (cb) {
+                for (let i = 0; i < this.length; i++) {
+                    // 객체에 소속되어 있을 때 this는 객체 자신이다.
+                    cb(this[i], i);
+                }
+            },
+            'map': function (cb) {
+                const tempArr = [];
+                for (let i = 0; i < this.length; i++) {
+                    tempArr.push(cb(this[i], i));
+                    // 배열에 값 넣는 건 push사용
+                }
+                return tempArr;
+            },
+            'filter' : function (cb) {
+                const filterArr = [];
+                for (let i=0; i < this.length; i++) {
+                    if(cb(this[i],i)) {
+                        filterArr.push(this[i]);
+                    }
+                }
+                return filterArr;
+            }
+        }
+
+        const arr = myArr.filter(function(item, idx) {
+            if(item % 2 !== 0) { 
+                console.log(`idx: ${idx} , item : ${item}`);
+            }   
+        });
+
+        const arr3 = myArr.filter(function(item, idx) {
+            // if(idx % 2 === 0) { return true; }
+            // return idx % 2 === 0 ? 1 : 0;
+            return idx % 2 === 0;
+        });
+        console.log(arr3.toString());
+
+        
+    </script>
+</body>
+
+</html>

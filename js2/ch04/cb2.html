@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function print(p1, p2, cb=hello) {
+            cb(p1, p2);
+            // 보이드 함수다.
+        }
+
+        function hello(nm) {
+            console.log(`Hi~~~${nm}`);
+        }
+
+        function goodbye(nm) {
+            console.log(`Bye~~~${nm}`);
+        }
+
+        print('대홍');
+        // 함수의 인자는 3개지만 1개만 보냈다.
+        print('대홍','',goodbye);
+        // 콜백 함수의 위치를 찾기 위해 ''을 사용
+
+    </script>
+</body>
+</html>

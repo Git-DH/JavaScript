@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(n1, n2) {
+            let result = 0;
+            result = n1 + n2;
+            return result;
+        }
+        console.log(sum(10, 20));
+        // 통신이 없는 부분
+
+        function sum2(n1, n2) {
+            let result = 0;
+            setTimeout(function(){
+                result = n1 + n2;
+            }, 1000);
+            return result;
+        } 
+        console.log(sum2(10, 20));
+        // 통신이 들어가 있다.
+        // setTimeout으로 통신이 느려져 setTimeout을 읽지않고 
+        // 처음의 result=0만 읽고 리턴을 시켜버린다.
+    </script>
+</body>
+</html>
